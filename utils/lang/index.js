@@ -1,5 +1,5 @@
 import en from './languageEN'
-import ru from './languageRU'
+import ru from './ru/languageRU'
 
 const Lang = (lang) => {
   return lang ? ru : en

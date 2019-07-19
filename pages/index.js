@@ -1,10 +1,10 @@
 import React, {useState, useRef} from 'react'
 
-import {PageBox, ScrollBox, ScrollToSlide, LineAnimation, Line, LineAfter, ScrollNumber} from '../components/index/style'
-import Portal from '../components/index/portal'
-import Sueo from '../components/index/sueo'
-import Parus from '../components/index/parus'
-import OtherSystem from '../components/index/otherSystem'
+import {PageBox, ScrollBox, ScrollToSlide, LineAnimation, Line, LineAfter, ScrollNumber} from '../components/pages/index/style'
+import Portal from '../components/pages/index/portal'
+import Sueo from '../components/pages/index/sueo'
+import Sail from '../components/pages/index/sail'
+import OtherSystem from '../components/pages/index/otherSystem'
 
 
 const Home = ({...props}) => {
@@ -52,7 +52,7 @@ const Home = ({...props}) => {
       <ScrollBox ref={scrollItem}>
         <Portal change={changeAnim} query={query} l={l} active={activeScreen === 0}/>
         <Sueo change={changeAnim} query={query} l={l} active={activeScreen === 1}/>
-        <Parus l={l} active={activeScreen === 2}/>
+        <Sail change={changeAnim} query={query} l={l} active={activeScreen === 2}/>
         <OtherSystem l={l} active={activeScreen === 3}/>
       </ScrollBox>
       <ScrollToSlide>

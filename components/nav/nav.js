@@ -1,27 +1,35 @@
+import {useState, useEffect} from 'react'
 import {Link, Router} from '../../routes';
-import {NavBox, Nav, Item, ContactBox, RightMenu, Lang, SwitchLang, Phone, LogoBox, Abs} from './style'
-import c from "../../styled/color";
-import styled from "styled-components";
+import {NavBox, Nav, Item, ContactBox, RightMenu, Lang, SwitchLang, Phone, LogoBox, Abs, HamburgerBox} from './style'
 
-export default ({l, activeLang, path = "/"}) => {
+export default ({l, activeLang, path = "/", mobile}) => {
+  const [active, setActive] = useState(false)
 
   const nav = [
     {text: l.home, href: '#'},
     {text: l.support, href: '#'},
-    {text: l.team, href: '#'},
+    {text: l.team, href: '/team'},
     {text: l.onlineSUEO, href: '#'},
-    {text: l.contacts, href: '#'},
+    {text: l.contacts, href: '/contacts'},
   ]
 
   const getText = (n, index) => {
-    return <Item key={n.text} active={index === 0} href={n.href}>{n.text}</Item>
+    return <Link to={n.href}>
+      <Item onClick={() => setActive(!active)} key={n.text} active={index === 0} href={n.href}>{n.text}</Item>
+    </Link>
   }
-
+  console.log(mobile)
   return <Nav>
+    <HamburgerBox active={active} onClick={() => setActive(!active)} htmlFor='input'>
+      <div>
+        <span />
+        <span />
+      </div>
+    </HamburgerBox>
     <LogoBox onClick={() => Router.push('/')}>
       <img src="../../static/img/logo.png" alt="" />
     </LogoBox>
-    <NavBox>
+    <NavBox className={active ? 'show' : mobile ? 'hide' : ''} active={active}>
       {nav.map((n, index) => getText(n, index))}
     </NavBox>
     <RightMenu>
