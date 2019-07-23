@@ -16,4 +16,13 @@ export const Header = styled.div`
     color: ${c.accent};
     font-weight: bold;
   }
+  @media(max-width: 1024px) {
+    background-position: 50% 100%;
+    background-size: 80%;
+    height: calc(100vh / 1.8)
+  }
+  @media(max-width: 600px) {
+    height: 100vh;
+    background-position: 50% 70%;
+  }
 `

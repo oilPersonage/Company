@@ -236,7 +236,7 @@ export const SendMessage = styled.div`
   max-width: 500px;
   margin: 0 auto;
   margin-bottom: 100px;
-  @media(max-width: 998px) {
+  @media(max-width: 1024px) {
      margin-bottom: 150px;
   }
   @media(max-width: 600px) {
@@ -347,16 +347,13 @@ const linkAnimation = keyframes`
 `
 
 export const Header = styled.div`
-  height: calc(100vh - 50px);
-  overflow: hidden;
-  min-width: 100vw;
   position: relative;
   background-color:#fff;
-  z-index: ${p => p.index ? 10 : 1};
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
-  margin-top: ${p => p.index ? 0 : '-50px'};
   @media(max-width: 600px) {
     flex-direction: column;
     height: auto;

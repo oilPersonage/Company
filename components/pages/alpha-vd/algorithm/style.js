@@ -5,6 +5,9 @@ export const Body = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
+  @media(max-width: 1366px) {
+    flex-wrap: wrap;
+  }
 `
 export const Item = styled.div`
   max-width: 170px;

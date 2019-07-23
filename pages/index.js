@@ -6,11 +6,14 @@ import Sueo from '../components/pages/index/sueo'
 import Sail from '../components/pages/index/sail'
 import OtherSystem from '../components/pages/index/otherSystem'
 
+import AnimationWrapper from '../components/pages/index/animationWrapper'
+
 
 const Home = ({...props}) => {
-  const {lang, l, changeAnim, query, animationToPage} = props
+  const {lang, l, query} = props
   const [activeScreen, setScreen] = useState(0)
   const [activeNumber, setActiveNumb] = useState(0)
+  const [scroll, stopScroll] = useState(false)
   const [anim, setAnim] = useState(true)
   const scrollItem = useRef(null)
   const LineAnim = useRef(null)
@@ -26,7 +29,7 @@ const Home = ({...props}) => {
   }
 
   function onScroll (e) {
-    if (animationToPage) return
+    if (scroll) return
     let dir = e.deltaY / 100
     dir = dir < -1 ? -1 : dir > 1 ? 1 : dir
     if (anim === false) return
@@ -48,12 +51,22 @@ const Home = ({...props}) => {
     AnimationScroll(numb)
   }
 
+  const arrComponent = [
+    {path: 'portal', component: <Portal />},
+    {path: 'sueo', component: <Sueo />},
+    {path: 'sail', component: <Sail />},
+    // {link: '/sueo', component: <OtherSystem />},
+  ]
+
   return <PageBox onWheel={onScroll}>
       <ScrollBox ref={scrollItem}>
-        <Portal change={changeAnim} query={query} l={l} active={activeScreen === 0}/>
-        <Sueo change={changeAnim} query={query} l={l} active={activeScreen === 1}/>
-        <Sail change={changeAnim} query={query} l={l} active={activeScreen === 2}/>
-        <OtherSystem l={l} active={activeScreen === 3}/>
+        {arrComponent.map((el, index) => <AnimationWrapper path={el.path} stopScroll={stopScroll} query={query} l={l} active={activeScreen === index}>
+          {el.component}
+        </AnimationWrapper>)}
+        {/*<Portal stopScroll={stopScroll} query={query} l={l} active={activeScreen === 0}/>*/}
+        {/*<Sueo stopScroll={stopScroll} query={query} l={l} active={activeScreen === 1}/>*/}
+        {/*<Sail stopScroll={stopScroll} query={query} l={l} active={activeScreen === 2}/>*/}
+        <OtherSystem stopScroll={stopScroll} l={l} active={activeScreen === 3}/>
       </ScrollBox>
       <ScrollToSlide>
         <LineAnimation>

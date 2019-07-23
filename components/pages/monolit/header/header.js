@@ -1,8 +1,8 @@
 import React from 'react'
 
-import {Img} from './style'
-import {Header as HeaderComponent} from '../../../../styled/main.style'
-import {Title, ExtraTitle, RightBox, HeaderImg} from '../../portal/header/style'
+import {Img, HeaderComponent, HeaderImg} from './style'
+// import {Header as HeaderComponent} from '../../../../styled/main.style'
+import {Title, ExtraTitle, RightBox} from '../../portal/header/style'
 import VariationIcons from '../../../smallComponents/variation/variationIcons'
 
 const Header = ({l, variationText}) => {

@@ -8,11 +8,48 @@ export const BodyContainer = styled.div`
     width: 50%;
     position: relative;
   }
+  
+  @media(max-width: 1024px) {
+    > div {
+      h2 {
+        font-size: 20px;
+        justify-content: center;  
+      }
+      &:last-child {
+        margin-bottom: 100px;
+      }
+    }
+  }
+  @media(max-width: 600px) {
+    flex-direction: column;
+    padding: 0 15px;
+    > div {
+      &:first-child {
+        order: 1;
+      }
+      &:last-child {
+        order: 0;
+        margin-bottom: 0;
+      }
+    }
+    > div {
+      width: 100%;
+      h2 {
+        justify-content: center;
+      }
+    }
+  }
 `
 export const ImgAbs = styled.img`
   position: absolute;
   top: 100px;
   width: 60% !important;
+  @media(max-width: 1024px) {
+    top: 130px;
+  }
+  @media(max-width: 600px) {
+    top: 120px;
+  }
 `
 export const ImgBox = styled.div`
   display: flex;
@@ -21,6 +58,9 @@ export const ImgBox = styled.div`
   padding-top: 150px;
   img {
     width: 50%;
+  }
+  @media(max-width: 1024px) {
+    align-items: flex-start;
   }
 `
 export const HeadBox = styled.div`
@@ -49,6 +89,17 @@ export const HeadBox = styled.div`
       font-weight: bold;
       font-size: inherit;
       line-height: 1.5;
+    }
+  }
+  @media(max-width: 600px) {
+    height: auto;
+    margin-top: 0;
+    p, input {
+      display: none;
+    }
+    div {
+      max-width: 100%;
+      margin-left: 0;
     }
   }
 `

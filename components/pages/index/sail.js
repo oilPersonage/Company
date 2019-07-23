@@ -3,14 +3,15 @@ import {Link, Router} from '../../../routes'
 import {ScreenBoxParus, Box, DescriptionSystem, LinkToSystem} from './style'
 import {useState} from "react";
 
-const Sail = ({active, l, change, query}) => {
+const Sail = ({active, l, query, stopScroll}) => {
   const pathname = query ? `${query}/sail` : '/sail'
   const [anim, setAnim] = useState(false)
   const setAnimation = (e) => {
     e.preventDefault()
     setAnim(true)
-    change(2)
+    stopScroll(true)
     setTimeout(() => {
+      console.log(pathname)
       Router.push(({ pathname }))
     }, 1000)
   }
@@ -22,9 +23,7 @@ const Sail = ({active, l, change, query}) => {
           Главный по пропускам
         </p>
       </DescriptionSystem>
-      <Link to={pathname}>
-      <LinkToSystem active={active}  onClick={setAnimation}  href={pathname}>Подробнее</LinkToSystem>
-      </Link>
+      <LinkToSystem active={active}  onClick={setAnimation} href={pathname}>Подробнее</LinkToSystem>
     </Box>
   </ScreenBoxParus>
 }

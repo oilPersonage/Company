@@ -5,4 +5,7 @@ export const HeaderBox = styled.div`
   background-size: cover;
   height: calc(100vh - 50px);
   width: 100vw;
+  @media(max-width: 1024px) {
+    background-position: 50% 50%;
+  }
 `

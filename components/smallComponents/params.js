@@ -9,7 +9,7 @@ const Params = ({arr, name}) => {
   }
 
   const Scroll = (e) => {
-    const vis = Visible(p[name].current, 500)
+    const vis = Visible(p[name].current, window.innerHeight / 3)
     if (!show && vis) setShow(true)
   }
 

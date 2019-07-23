@@ -8,9 +8,20 @@ export const HeaderBox = styled.div`
   background-size: cover;
   h1 {
     color: ${c.white};
+    padding-top: 15px;
   }
   p {
     text-align: center;
     color: ${c.white};
+  }
+  @media(max-width: 600px) {
+    background-position: 50% 0;
+    height: 400px;
+    > div {
+      margin-bottom: 15px;
+    }
+    h1 span {
+      margin-top: 15px;
+    }
   }
 `

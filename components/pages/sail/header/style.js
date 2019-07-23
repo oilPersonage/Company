@@ -92,4 +92,11 @@ export const SectionName = styled.h1`
     margin-top: 30px;
     color: ${c.accent}
   }
+  
+  @media(max-width: 600px) {
+    padding-top: 15px;
+    span {
+      margin-top: 15px;
+    }
+  }
 `

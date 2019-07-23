@@ -38,16 +38,27 @@ export const Title = styled.h4`
   }
 `
 export const Body = styled.p`
-  transition: 0.3s ease-out;
+  transition: 0.3s ease-out 0.2s;
   opacity: ${p => p.active ? 1 : 0};
 `
 export const BodyBox = styled.div`
   //margin-top: 60px;
   display: flex;
+  @media(max-width: 1024px) {
+    flex-direction: column;
+  }
 `
 export const RightBox = styled.div`
   display: flex;
   flex-direction: column;
+  @media(max-width: 1024px) {
+    padding: 0 15px;
+    align-items: center;
+    text-align: center;
+    h4 {
+      justify-content: center;
+    }
+  }
 `
 
 const ArrowAnimation = keyframes`

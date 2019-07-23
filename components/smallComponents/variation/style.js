@@ -19,6 +19,7 @@ export const VariationContainer = styled.div`
   }
   @media(max-width: 1024px) {
     flex-wrap: wrap;
+    margin-bottom: 30px;
     &:after {
       display: none;
     }
@@ -108,7 +109,7 @@ export const  VariationIconsBox = styled.div`
   }
   @media(max-width: 1024px) {
     transform: none;
-    margin-left: 30px;
+    margin: 0 0px 50px 30px;
     order: 2;
   }
   @media(max-width: 600px) {
@@ -121,11 +122,12 @@ export const CarouselBox = styled.div`
   max-width: 1000px;
   flex-direction: column;
   align-items: flex-start;
+  height: inherit;
   padding-bottom: 50px;
   overflow: hidden;
   flex: 1;
   @media(max-width: 1366px) {
-    max-width: 866px;
+    max-width: ${p => p.quest ? '666px' : '866px'};
   }
   @media(max-width: 1024px) {
     max-width: 100vw;
@@ -145,9 +147,9 @@ export const  CarouselWrapper = styled.div`
 export const  ImgBox = styled.div`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: 0.5s ease-out;
   opacity: ${p => p.active ? 1 : 0};
-  justify-content: center;
   height: 600px;
   width: 1000px;
   padding: 0 100px;

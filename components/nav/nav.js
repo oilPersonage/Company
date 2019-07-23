@@ -6,7 +6,7 @@ export default ({l, activeLang, path = "/", mobile}) => {
   const [active, setActive] = useState(false)
 
   const nav = [
-    {text: l.home, href: '#'},
+    {text: l.home, href: '/'},
     {text: l.support, href: '#'},
     {text: l.team, href: '/team'},
     {text: l.onlineSUEO, href: '#'},
@@ -14,11 +14,10 @@ export default ({l, activeLang, path = "/", mobile}) => {
   ]
 
   const getText = (n, index) => {
-    return <Link to={n.href}>
-      <Item onClick={() => setActive(!active)} key={n.text} active={index === 0} href={n.href}>{n.text}</Item>
+    return <Link key={index} to={n.href}>
+      <Item onClick={() => setActive(!active)} key={n.text} active={n.href === path} href={n.href}>{n.text}</Item>
     </Link>
   }
-  console.log(mobile)
   return <Nav>
     <HamburgerBox active={active} onClick={() => setActive(!active)} htmlFor='input'>
       <div>
@@ -26,10 +25,13 @@ export default ({l, activeLang, path = "/", mobile}) => {
         <span />
       </div>
     </HamburgerBox>
-    <LogoBox onClick={() => Router.push('/')}>
+    <LogoBox onClick={() => {
+      setActive(false)
+      Router.push('/')
+    }}>
       <img src="../../static/img/logo.png" alt="" />
     </LogoBox>
-    <NavBox className={active ? 'show' : mobile ? 'hide' : ''} active={active}>
+    <NavBox className={mobile ? active ? 'show' : 'hide' : ''} active={active}>
       {nav.map((n, index) => getText(n, index))}
     </NavBox>
     <RightMenu>

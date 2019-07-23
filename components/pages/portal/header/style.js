@@ -9,7 +9,7 @@ export const Img = styled.div`
   background-position: center;
   transition: 1s ease-out;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   @media(max-width: 1024px) {
     clip-path: none;
@@ -63,6 +63,7 @@ export const RightBox = styled.div`
   height: 100%;
   padding: 60px;
   position: relative;
+  background-color: ${c.white};
   @media(max-width: 1366px) {
     background-color: ${c.white};
     max-width: 500px;

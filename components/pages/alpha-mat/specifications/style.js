@@ -17,9 +17,29 @@ export const SpecificationBox = styled.div`
     content: '';
     background: linear-gradient(to top, #fff 20%, transparent);
   }
+  @media(max-width: 1024px) {
+    background-size: 250%;
+    padding: 0 0 370px
+  }
+  @media(max-width: 600px) {
+    background-size: 400%;
+    background: none;
+    padding: 15px 0 0;
+    &:after {
+      display: none;
+    }
+    h2 {
+      margin-bottom: 0 !important;
+    }
+  }
 `
 export const Body = styled.div`
   margin-top: 60px;
   margin-bottom: 40px;
   transform: scale(0.8);
+  @media(max-width: 600px) {
+    transform: none;
+    margin-top: 0;
+    margin-bottom: 100px;
+  }
 `

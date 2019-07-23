@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 
 import {CarouselBox, CarouselWrapper, ImgBox, NavigationBox, NavigationItem} from '../style'
 
-const Carousel = ({images}) => {
+const Carousel = ({images, quest}) => {
   const [current, setCurrent] = useState(0)
- return <CarouselBox>
+ return <CarouselBox quest={quest}>
    <CarouselWrapper style={{transform: `translateX(-${current * 100 / images.length}%)` }}>
      {images.map((img, index) => <ImgBox active={index === current} key={index}>{img}</ImgBox>)}
    </CarouselWrapper>

@@ -16,7 +16,7 @@ export const ScreenBox = styled.div`
 `
 export const ScrollBox = styled.div`
   height: 100%;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s cubic-bezier(.1,.3,.33,.99);
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
@@ -37,14 +37,12 @@ export const ScreenBoxPortal = styled(ScrollBox)`
 `
 export const ScreenBoxAsvk = styled(ScrollBox)`
   background: url('../../../static/img/index/2-2.jpg')  no-repeat 50% / cover;
-  transform: ${p => p.anim ? `translateX(-100%)` : 'none'};
-  transition: transform 1s cubic-bezier(.1,.3,.33,.99);
   > div {
     align-items: flex-end;
     text-align: right;
     padding-left: 0;
-    padding-right: 100px;
-    padding-top: 400px;
+    padding-right: 200px;
+    //padding-top: 200px;
   }
   @media(max-width: 1024px) {
     background-position: 20% 100%;
@@ -208,6 +206,7 @@ export const DescriptionSystem = styled.div`
   }
   @media(max-width: 600px) {
     margin: 0 auto;
+    max-width: 90%;
   }
 `
 const linkAnimation = keyframes`

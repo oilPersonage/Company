@@ -21,7 +21,7 @@ const Quest = ({l, left}) => {
     </SectionHead>
     <BodyBox>
       <div>
-        <Carousel images={images}/>
+        <Carousel quest images={images}/>
       </div>
       <RightBox>
         {items.map((el, index) => <QuestItem active={active === index}>

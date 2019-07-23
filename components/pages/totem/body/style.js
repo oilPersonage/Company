@@ -20,4 +20,38 @@ export const BodyContainer = styled.div`
       width: 100%;
     }
   }
+  @media(max-width: 1024px) {
+    padding: 0 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    > div:first-child {
+      margin: 0 auto;
+      order: 1;
+    }
+    > div {
+      width: 100%;
+      order: 0;
+      margin: 0 auto 50px;
+      &:last-child {
+        > div {
+          &:first-child {
+            margin: 0 auto;
+            width: 50%;
+          }
+        }
+      }
+    }
+    @media(max-width: 600px) {
+      > div {
+        width: 100% !important;
+        &:last-child {
+          > div {
+            &:first-child {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 `

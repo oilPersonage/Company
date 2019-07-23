@@ -5,14 +5,14 @@ import {ScreenBoxPortal, Box, DescriptionSystem, LinkToSystem} from './style'
 
 const Portal = ({...props}) => {
   const [anim, setAnim] = useState(false)
-  const {active, l, change, query} = props
+  const {active, l, query, stopScroll} = props
 
   const pathname = query ? `${query}/portal` : '/portal'
 
   const setAnimation = (e) => {
     e.preventDefault()
     setAnim(true)
-    change(0)
+    stopScroll(true)
     setTimeout(() => {
       Router.push(({ pathname }))
     }, 1000)
@@ -24,9 +24,7 @@ const Portal = ({...props}) => {
       <DescriptionSystem active={active}>
         <p>{l.portalDescr}</p>
       </DescriptionSystem>
-      <Link route={`portal/`}>
-        <LinkToSystem onClick={setAnimation} href={pathname} active={active}>{l.more}</LinkToSystem>
-      </Link>
+      <LinkToSystem onClick={setAnimation} href={pathname} active={active}>{l.more}</LinkToSystem>
     </Box>
   </ScreenBoxPortal>
 }
